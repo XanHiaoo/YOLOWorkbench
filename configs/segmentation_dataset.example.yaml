@@ -1,0 +1,8 @@
+# Copy this file to the dataset root as data.yaml and update the class names.
+# YOLO expects labels in labels/train and labels/val beside these image folders.
+path: /workspace/datasets/my-segmentation-dataset
+train: images/train
+val: images/val
+
+names:
+  0: defect

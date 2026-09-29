@@ -1,0 +1,61 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CMake: Configure",
+      "type": "shell",
+      "command": "cmake -S . -B build -DONNXRUNTIME_ROOT=/opt/onnxruntime",
+      "options": {
+        "cwd": "${workspaceFolder}/cpp"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "CMake: Build",
+      "type": "shell",
+      "command": "cmake --build build -j",
+      "options": {
+        "cwd": "${workspaceFolder}/cpp"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "dependsOn": "CMake: Configure"
+    },
+    {
+      "label": "Run yolo_cpp",
+      "type": "shell",
+      "command": "./build/yolo_cpp",
+      "options": {
+        "cwd": "${workspaceFolder}/cpp"
+      },
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "CMake: Build (in container)",
+      "type": "shell",
+      "command": "docker",
+      "args": [
+        "exec",
+        "-i",
+        "yoloworkbench",
+        "bash",
+        "-lc",
+        "cd /workspace/cpp && cmake -S . -B build -DONNXRUNTIME_ROOT=/opt/onnxruntime && cmake --build build -j"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+# Local build output
+/cpp/build/
+
+# Datasets, trained weights, exported models, and training output are supplied
+# separately and may contain large or project-specific assets.
+/datasets/
+/models/
+/weights/
+/runs/
+*.pt
+*.onnx
+*.engine
+
+# Local sample input and generated result images are not distributed.
+/cpp/samples/*
+!/cpp/samples/README.md
+/docs/images/
+
+# Old source archive duplicates the checked-in cpp/ tree.
+/cpp.7z
+/cpp/dependency_summary/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ultralytics/
+
+# Editor and operating system
+.DS_Store
+Thumbs.db

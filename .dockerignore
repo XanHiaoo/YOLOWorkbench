@@ -1,0 +1,4 @@
+# The Dockerfile creates only the toolchain/runtime image; source is bind-mounted later.
+**
+!docker/
+!docker/Dockerfile
